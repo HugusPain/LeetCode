@@ -13,6 +13,7 @@ package com.Hugus.SimpleDemo;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  *〈BriefDescription〉                                                                                    
@@ -24,6 +25,44 @@ import java.util.Map;
  * @since 1.0.0
  */
 public class TwoNumSum {
+
+    private static final Logger logger = Logger.getLogger(TwoNumSum.class.getName());
+    /*
+     * @Description //笨方法 二次遍历数组 时间复杂度O₂
+     * @Author HugusPain
+     * @Date 2023/3/13 12:21
+     * @param target
+     * @param origin
+     * @returnType int[]
+    */
+    private static int[] getTwoIndex(int target,int[] nums){
+        int[] res = new int[2];
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i+1 ; j < nums.length; j++) {
+                if(nums[i] + nums[j] == target){
+                    res[0] = i;
+                    res[1] = j;
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+
+    private static int[] getTwoIndex(int[]nums,int target){
+        Map<Integer,Integer> map = new HashMap<>();
+        int[] res = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if(map.containsKey(target - nums[i])){
+                res[0] = i;
+                res[1] = map.get(target - nums[i]);
+            }
+            map.put(nums[i],i);
+        }
+        return res;
+    }
+
+
     public static void main(String[] args) {
         int []nums = new int[]{0,1,5,9,8,6,3,4};
         int target = 10;
