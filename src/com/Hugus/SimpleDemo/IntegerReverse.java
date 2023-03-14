@@ -24,10 +24,49 @@ public class IntegerReverse {
         int min = Integer.MIN_VALUE;
         System.out.println("max:"+max);
         System.out.println("min:"+min);
-        int a = 12345789;
-        int res = reverse(a);
+        int a = -2147483412;
+        int res = reverse2(a);
         System.out.println(res);
     }
+    /*
+     * @Description //这个方法其实是取巧的 跟算法无关了 而且一旦出现负数 就会出错
+     * @Author HugusPain
+     * @Date 2023/3/14 11:57
+     * @param num
+     * @returnType int
+    */
+    private static int rev(int num){
+        String numStr = String.valueOf(num);
+        System.out.println("The numStr:"+numStr);
+        StringBuilder builder = new StringBuilder(numStr);
+        String res = builder.reverse().toString();
+        System.out.println("The result Str:"+res);
+        return Integer.parseInt(res);
+    }
+
+    /*
+     * @Description
+     * 原数取余10,得到个位数 个位数*10 得到新的res 原数取模10得到新的res
+     *
+     * @Author HugusPain
+     * @Date 2023/3/14 12:03
+     * @param x
+     * @returnType int
+    */
+    private static int reverse(int x){
+        int res = 0;
+        while(x != 0){
+            res = x%10 + res*10;
+            x /= 10;
+            if (res > Integer.MAX_VALUE / 10 ||(res == Integer.MAX_VALUE/10 && x > 7)) return 0;
+            if (res < Integer.MIN_VALUE / 10 ||(res == Integer.MIN_VALUE/10 && x < -8)) return 0;
+        }
+        return res;
+    }
+
+
+
+
 
     /*public static int reverse(int x){
         int rev = 0;
@@ -43,7 +82,7 @@ public class IntegerReverse {
         return rev;
     }*/
 
-    public static int reverse(int x){
+    /*public static int reverse(int x){
         int rev = 0;
         while (x != 0){
             rev = rev*10+x%10;
@@ -53,9 +92,18 @@ public class IntegerReverse {
         }
 
         return rev;
+    }*/
+
+
+    public static int reverse2(int x) {
+        int res = 0;
+        while(x != 0){
+            res = x%10 + res*10;
+            x /= 10;
+            if(res > Integer.MAX_VALUE /10 || (res == Integer.MAX_VALUE/10 && x > 7)) return 0;
+            if(res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE/10 && x < -8)) return 0;
+        }
+        return res;
     }
-
-
-
 
 }
