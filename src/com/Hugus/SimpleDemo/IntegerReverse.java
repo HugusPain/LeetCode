@@ -3,7 +3,7 @@
  * FileName: IntegerReverse
  * Author:   Administrator
  * Date:     2020/1/15 0015 13:37
- * Description: 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
+ * Description: 给出一个 32 位的有符号整数,你需要将这个整数中每位上的数字进行反转.
  * History:
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
@@ -12,7 +12,7 @@ package com.Hugus.SimpleDemo;
 
 /**
  *〈BriefDescription〉                                                                                    
- * 〈给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。〉                                                                                                                                                               
+ * 〈给出一个 32 位的有符号整数,你需要将这个整数中每位上的数字进行反转.〉                                                                                                                                                               
  *
  * @author Administrator
  * @create 2020/1/15 0015                                                                                        
