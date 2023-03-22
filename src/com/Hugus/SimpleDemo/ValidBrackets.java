@@ -22,7 +22,6 @@ import java.util.*;
  * hugus         2023/3/21 11:37     V1.0           Initial class
  */
 public class ValidBrackets {
-
     public static void main(String[] args) {
         boolean res = isValid("{((<[()()[][]{}{}{[]}]>))}");
         System.out.println(res);
@@ -123,6 +122,5 @@ public class ValidBrackets {
             return removeValidBrackets(s);
         }
     }
-
 }
 
